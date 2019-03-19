@@ -1,0 +1,31 @@
+jenkis sample job to build when push code push to github
+1. create project Sample_BuildJob_Github_Onpush
+2.Description	
+<font color="red"><b>Samplejob to Trigger builds remotely  when push to Github</b></font>
+3.Source Code Management
+Git Repository URL  https://github.com/smansh2019/jenkins_work.git
+4.Build Triggers
+choose option
+Build when a change is pushed to BitBucket
+GitHub hook trigger for GITScm polling
+5.Post-build Actions
+Email notification
+6. in github
+-------------------
+Login into Github (with Admin)
+
+Go to the repository you want to hook with jenkins
+
+Click on settings tab -> webhooks
+Click on Add Webhook.
+Enter payload url : like : http://8ba9d10b.ngrok.io/github-webhook/
+Select content type as application/xwwww
+Let me select individual events.
+choose option
+Pushes
+Git push to a repository.
+Pull requests
+Pull request opened, closed, reopened, edited, assigned, unassigned, review requested, review request removed, labeled, unlabeled, or synchronized.
+
+
+
