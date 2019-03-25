@@ -1,0 +1,18 @@
+Samplewebsite deploy job with shell script
+1.General---project name=>samplewebsitedeply
+2.Source code managementhttps://smansh@bitbucket.org/smansh/devops.git
+ Select Credentials
+3.Build---Excute shell
+#/bin/bash /var/lib/jenkins/script/deploy.sh samplewebsitedeploy
+4.create file in /var/lib/jenkins/script/deploy.sh
+#!/bin/bash
+#
+jobName="$1"
+servers="127.0.0.1 192.168.1.200 192.168.1.10 192.168.1.11"
+for server in $servers
+do
+        rsync -avz -e 'ssh -p 22' /var/lib/jenkins/workspace/$jobName/ root@$server:/var/www/html/
+        ssh -l root -p 22 $server "/etc/init.d/httpd restart"
+done
+------------------------------------------------------------------------------------------------------
+
