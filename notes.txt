@@ -15,4 +15,44 @@ do
         ssh -l root -p 22 $server "/etc/init.d/httpd restart"
 done
 ------------------------------------------------------------------------------------------------------
+sampleRemoteExcute job
+project name-sampleRemoteExcute
+Build—Excute shell script to remotehost using ssh
+Ssh site—root@122.176.59.218:2212
+Command-/bin/bash/test.sh
+Vi  /test.sh
+#!/bin/bash
+clear
 
+echo “This information is brought to you by $0.”
+
+#Welcome the user
+echo “Welcome, $USER”
+echo
+echo “Today is `date`.”
+echo
+
+#Currently active users.
+echo “Following users are presently active:”
+w | cut -d ' ' -f 1 | grep -v USER | sort -u
+echo
+
+#System information using uname command
+echo “This is `uname -s` running on a `uname -m` processor.”
+echo
+
+#Information of uptime
+echo “Following is the uptime information:”
+uptime
+echo
+
+#Showing free memory
+echo “Memory Details:”
+free
+echo
+
+#Disk space usage using df command
+echo “Disk Space Utilization:”
+df -mh
+echo
+-------------------------------------------------------------------
